@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "openapi": [],
+    "apis": [
+      "database.aggregate",
+      "database.read"
+    ]
+  }
+}

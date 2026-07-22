@@ -1,0 +1,178 @@
+/* pages/detail/index.wxss */
+page {
+  background-color: var(--bgColor);
+}
+
+.container {
+  padding: 32rpx;
+}
+
+.shop-card {
+  background: var(--cardBg); /* 半透明白色 */
+  backdrop-filter: blur(20px); /* 液态玻璃效果 */
+  border-radius: 24rpx;
+  box-shadow: var(--shadowColor);
+  padding: 40rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8rpx;
+}
+
+.shop-name {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--textPrimary);
+}
+
+.shop-address {
+  font-size: 28rpx;
+  color: var(--textSecondary);
+}
+
+.wifi-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.section-header {
+  border-bottom: 1rpx solid var(--cardBorder);
+  padding-bottom: 16rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--textPrimary);
+}
+
+.wifi-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.wifi-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid var(--cardBorder);
+}
+
+.wifi-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 30rpx;
+  color: var(--textSecondary);
+  font-weight: 500;
+}
+
+.value {
+  font-size: 30rpx;
+  color: var(--textPrimary);
+  font-weight: 500;
+}
+
+.password-display {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.toggle-password-icon {
+  width: 44rpx;
+  height: 44rpx;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.toggle-password-icon:active {
+  opacity: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 32rpx;
+}
+
+.button-group button {
+  flex: 1;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--textPrimary);
+  box-shadow: var(--shadowColor);
+  transition: all 0.2s ease;
+}
+
+.button-group button:active {
+  transform: translateY(2rpx);
+  box-shadow: var(--shadowColor);
+}
+
+.copy-button {
+  background: linear-gradient(135deg, #07C160, #05a050); /* 微信绿 */
+}
+
+.report-button {
+  background: linear-gradient(135deg, #FF3B30, #CC2929); /* 警示红 */
+}
+
+.button-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+  filter: invert(1);
+}
+
+.no-wifi-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  gap: 24rpx;
+  color: var(--textSecondary);
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.submit-new-wifi-button {
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(135deg, #007AFF, #005BBF); /* iOS蓝色 */
+  color: var(--textPrimary);
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 40rpx;
+  padding: 0 40rpx;
+  box-shadow: 0 6rpx 18rpx rgba(0, 122, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.submit-new-wifi-button:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 3rpx 9rpx rgba(0, 122, 255, 0.3);
+}
+
+.loading-message {
+  text-align: center;
+  padding: 80rpx;
+  color: var(--textHint);
+  font-size: 32rpx;
+}

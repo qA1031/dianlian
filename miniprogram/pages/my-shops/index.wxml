@@ -1,0 +1,35 @@
+<view class="container {{themeClass}} {{isDarkMode ? 'dark' : ''}}">
+  <block wx:if="{{myShops.length > 0}}">
+    <view class="shop-list">
+      <view class="shop-card" 
+            wx:for="{{myShops}}" 
+            wx:for-item="shop" 
+            wx:key="_id" 
+            data-id="{{shop._id}}"
+            bindtap="goToDetail">
+        
+        <view class="card-header">
+          <view class="shop-meta">
+            <text class="shop-name">{{shop.shopName}}</text>
+            <text class="shop-address">{{shop.address}}</text>
+            <text class="submit-time">提交于 {{shop.createdAt}}</text>
+          </view>
+          <view class="shop-icon">
+            <text>🏠</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="empty-state">
+      <view class="empty-icon">🤷‍♂️</view>
+      <text class="empty-title">你还没有提交过店铺</text>
+      <text class="empty-desc">去发现并分享你身边的WiFi吧！</text>
+      <view class="empty-action" bindtap="goToSubmit">
+        <text>+ 提交WiFi信息</text>
+      </view>
+    </view>
+  </block>
+</view>

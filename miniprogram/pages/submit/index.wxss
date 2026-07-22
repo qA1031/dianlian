@@ -1,0 +1,342 @@
+/* pages/submit/index.wxss */
+
+.container {
+  padding: 0 24rpx 140rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+
+
+
+
+/* ===== 表单卡片 ===== */
+.form-card {
+  background: var(--cardBg);
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx var(--shadowColor);
+  overflow: hidden;
+  margin-bottom: 32rpx;
+  border: none; /* 移除边框 */
+  padding: 32rpx 28rpx; /* 内边距 */
+}
+
+.form-group {
+  padding: 0; /* 外部卡片已有内边距 */
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  margin-bottom: 28rpx;
+}
+
+.group-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+.group-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--textPrimary);
+}
+
+/* ===== 表单项 ===== */
+.form-item {
+  margin-bottom: 28rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-item.error .input-wrap,
+.form-item.error .address-selector {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--textPrimary); /* 使用主题主文本颜色 */
+}
+
+.required {
+  color: var(--error);
+  font-size: 24rpx;
+  margin-left: 6rpx;
+}
+
+.hint {
+  font-size: 22rpx;
+  color: var(--textSecondary); /* 使用主题色 */
+  margin-left: 8rpx;
+  font-weight: 400;
+}
+
+/* ===== 输入框包装 ===== */
+.input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--inputBg); /* 使用全局输入框背景变量 */
+  border-radius: 24rpx; /* 统一圆角 */
+  border: 2rpx solid transparent;
+  padding: 0 28rpx; /* 调整内边距 */
+  height: 96rpx; /* 增加高度 */
+  transition: all 0.2s ease;
+}
+
+.input-wrap:focus-within {
+  background: var(--cardBg);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4rpx var(--primaryBgLight); /* 调整聚焦阴影强度 */
+}
+
+.input-icon {
+  font-size: 40rpx; /* 调整图标尺寸 */
+  margin-right: 16rpx;
+  color: var(--textSecondary); /* 使用主题色 */
+  opacity: 1; /* 移除透明度 */
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  font-size: 30rpx;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.placeholder {
+  color: var(--textHint); /* 使用主题提示文本颜色 */
+  font-size: 28rpx;
+}
+
+.clear-btn {
+  width: 60rpx; /* 调整尺寸 */
+  height: 60rpx; /* 调整尺寸 */
+  background: var(--activeBg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16rpx; /* 调整间距 */
+}
+
+.clear-btn text {
+  font-size: 24rpx; /* 调整字号 */
+  color: var(--textSecondary); /* 调整颜色 */
+  font-weight: 500;
+}
+
+.eye-toggle {
+  width: 60rpx; /* 调整尺寸 */
+  height: 60rpx; /* 调整尺寸 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16rpx; /* 调整间距 */
+  background-color: var(--activeBg);
+  border-radius: 50%; /* 圆形 */
+}
+
+.eye-toggle text {
+  font-size: 24rpx; /* 调整字号 */
+  color: var(--textSecondary); /* 使用主题色 */
+}
+
+/* ===== 地址选择器 ===== */
+.address-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--inputBg); /* 使用全局输入框背景变量 */
+  border-radius: 24rpx; /* 统一圆角 */
+  border: 2rpx solid transparent;
+  padding: 0 28rpx; /* 调整内边距 */
+  height: 96rpx; /* 增加高度 */
+  transition: all 0.2s ease;
+}
+
+.address-selector:active {
+  background: var(--activeBg); /* 更柔和的点击反馈 */
+}
+
+.selector-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.address-text {
+  font-size: 30rpx;
+  color: var(--textPrimary); /* 使用主题主文本颜色 */
+  font-weight: 500;
+}
+
+.address-text.placeholder {
+  color: var(--textHint); /* 使用主题提示文本颜色 */
+}
+
+.selector-right {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.map-hint {
+  font-size: 28rpx; /* 描述字号 */
+  color: var(--textSecondary); /* 描述颜色 */
+  font-weight: 500;
+}
+
+.arrow {
+  font-size: 28rpx; /* 调整图标尺寸 */
+  color: var(--textSecondary); /* 使用主题色 */
+  font-weight: 300;
+}
+
+/* ===== 错误提示 ===== */
+.error-msg {
+  font-size: 22rpx;
+  color: var(--error);
+  margin-top: 8rpx;
+  display: block;
+  padding-left: 8rpx;
+}
+
+/* ===== 店铺类型选择 ===== */
+.type-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.type-tag {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 12rpx 24rpx;
+  background: var(--bgColor); /* 使用背景色 */
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: var(--textSecondary); /* 使用辅助文本颜色 */
+  border: 2rpx solid transparent;
+  transition: all 0.2s ease;
+}
+
+.type-tag.active {
+  background: var(--primaryBgLight); /* 使用品牌色浅背景 */
+  color: var(--primaryColor); /* 使用品牌主色 */
+  border-color: var(--primaryColor);
+  font-weight: 600;
+}
+
+.type-tag text:first-child {
+  font-size: 28rpx;
+}
+
+/* ===== 分隔线 ===== */
+.divider {
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--cardBorder), transparent);
+  margin: 0 32rpx;
+}
+
+/* ===== 提交区域 ===== */
+.submit-area {
+  margin-top: 32rpx;
+  padding: 24rpx 32rpx;
+  background: transparent; /* 移除背景 */
+  box-shadow: none; /* 移除阴影 */
+}
+
+.privacy-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.privacy-icon {
+  font-size: 24rpx;
+  color: var(--textSecondary); /* 使用主题色 */
+}
+
+.privacy-text {
+  font-size: 22rpx;
+  color: var(--textSecondary); /* 使用主题色 */
+}
+
+/* ===== 提交按钮 ===== */
+.submit-btn {
+  width: 100%;
+  height: 96rpx;
+  background: var(--primaryColor); /* 使用主题主色 */
+  color: var(--textPrimary);
+  border-radius: 48rpx;
+  font-size: 30rpx; /* 调整字号 */
+  font-weight: 500; /* 调整字重 */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx var(--primaryShadowColor);
+  transition: all 0.2s ease;
+}
+
+.submit-btn::after {
+  border: none;
+}
+
+.submit-btn:active {
+  transform: translateY(2rpx) scale(0.98);
+  box-shadow: 0 4rpx 12rpx var(--shadowColor); /* 使用主题阴影变量 */
+}
+
+.submit-btn.disabled {
+  background: var(--cardBg); /* 使用卡片背景色 */
+  color: var(--textHint); /* 使用提示文本颜色 */
+  box-shadow: none;
+}
+
+.submit-btn.loading {
+  background: linear-gradient(135deg, #05a050, var(--primaryColor));
+}
+
+.btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.loading-spinner {
+  width: 32rpx;
+  height: 32rpx;
+  border: 3rpx solid var(--cardBorder);
+  border-top-color: var(--textPrimary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

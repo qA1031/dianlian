@@ -1,0 +1,22 @@
+<!--pages/my/edit-profile/edit-profile.wxml-->
+<view class="container {{themeClass}} {{isDarkMode ? 'dark' : ''}}">
+  <view class="profile-card">
+    <view class="avatar-section" bindtap="chooseAvatar">
+      <image src="{{avatarUrl}}" class="avatar" mode="aspectFill"></image>
+      <text class="avatar-hint">点击更换头像</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input
+        class="input-field"
+        placeholder="请输入昵称"
+        value="{{nickName}}"
+        bindinput="onNickNameInput"
+        maxlength="15"
+      />
+    </view>
+
+    <button class="save-button" bindtap="onSaveProfile" loading="{{loading}}" disabled="{{loading}}">保存</button>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "openapi": [
+      "wx.getWXContext"
+    ],
+    "apis": [
+      "database.read",
+      "database.update",
+      "database.add"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/index",
+    "pages/submit/index",
+    "pages/my/index",
+    "pages/my-shops/index",
+    "pages/my-feedback/index",
+    "pages/my/edit-profile/edit-profile",
+    "pages/example/index"
+  ],
+  "window": {
+    "backgroundColor": "#f5f7fa",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#07C160",
+    "navigationBarTitleText": "店连",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/submit/index", "text": "提交" },
+      { "pagePath": "pages/my/index", "text": "我的" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于展示附近WiFi和校验提交位置"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<!--pages/detail/index.wxml-->
+<view class="container {{themeClass}} {{isDarkMode ? 'dark' : ''}}">
+  <view wx:if="{{shopDetail}}" class="shop-card">
+    <view class="shop-info">
+      <text class="shop-name">{{shopDetail.shopName}}</text>
+      <text class="shop-address">{{shopDetail.address}}</text>
+    </view>
+
+    <view class="wifi-info-section">
+      <view class="section-header">
+        <text class="section-title">WiFi 信息</text>
+      </view>
+
+      <view wx:if="{{currentWifi.ssid}}" class="wifi-details">
+        <view class="wifi-item">
+          <text class="label">名称 (SSID)</text>
+          <text class="value">{{currentWifi.ssid}}</text>
+        </view>
+        <view class="wifi-item">
+          <text class="label">密码</text>
+          <view class="password-display">
+            <text class="value">{{showPassword ? currentWifi.password : '********'}}</text>
+            <image
+              class="toggle-password-icon"
+              src="/images/icons/{{showPassword ? 'eye-open' : 'eye-close'}}.png"
+              bindtap="togglePasswordVisibility"
+            ></image>
+          </view>
+        </view>
+
+        <view class="button-group">
+          <button class="copy-button" bindtap="copyPassword">
+            <image class="button-icon" src="/images/icons/copy.png"></image>
+            复制密码
+          </button>
+          <button class="report-button" bindtap="reportInvalidWifi">
+            <image class="button-icon" src="/images/icons/ban.png"></image>
+            密码已失效
+          </button>
+        </view>
+      </view>
+
+      <view wx:else class="no-wifi-message">
+        <text>暂无有效密码，您可以提交新密码</text>
+        <button class="submit-new-wifi-button" bindtap="goToSubmitNewWifi">
+          去提交新密码
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="loading-message">
+    <text>加载中...</text>
+  </view>
+</view>

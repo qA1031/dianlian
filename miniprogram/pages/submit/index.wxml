@@ -1,0 +1,139 @@
+<view class="container {{themeClass}} {{isDarkMode ? 'dark' : ''}}">
+
+
+  <!-- 表单卡片 -->
+  <view class="form-card">
+    <!-- 店铺信息分组 -->
+    <view class="form-group">
+      <view class="group-header">
+        <view class="group-icon" style="background: #e3f2fd;">🏪</view>
+        <text class="group-title">店铺信息</text>
+      </view>
+
+
+
+      <!-- 地址 -->
+      <view class="form-item {{errors.address ? 'error' : ''}}">
+        <view class="item-header">
+          <text class="label">地址</text>
+          <text class="required">*</text>
+        </view>
+        <view class="address-selector" bindtap="chooseLocation">
+          <view class="selector-left">
+            <text class="input-icon">📍</text>
+            <text class="address-text {{addressName === '请选择店铺地址' ? 'placeholder' : ''}}">{{addressName === '请选择店铺地址' ? '点击右侧选择地址' : addressName}}</text>
+          </view>
+          <view class="selector-right">
+            <text class="arrow">›</text>
+          </view>
+        </view>
+        <text class="error-msg" wx:if="{{errors.address}}">{{errors.address}}</text>
+      </view>
+
+      <!-- 店铺类型 -->
+      <view class="form-item">
+        <view class="item-header">
+          <text class="label">店铺类型</text>
+        </view>
+        <view class="type-selector">
+          <view 
+            class="type-tag {{shopType === item ? 'active' : ''}}" 
+            wx:for="{{shopTypes}}" 
+            wx:key="*this"
+            bindtap="selectType"
+            data-type="{{item}}"
+          >
+            <text>{{typeIcons[item]}}</text>
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 分隔线 -->
+    <view class="divider"></view>
+
+    <!-- WiFi信息分组 -->
+    <view class="form-group">
+      <view class="group-header">
+        <view class="group-icon" style="background: #fff3e0;">📶</view>
+        <text class="group-title">WiFi信息</text>
+      </view>
+
+      <!-- WiFi名称 -->
+      <view class="form-item {{errors.ssid ? 'error' : ''}}">
+        <view class="item-header">
+          <text class="label">WiFi名称</text>
+          <text class="required">*</text>
+        </view>
+        <view class="input-wrap">
+          <text class="input-icon">📡</text>
+          <input 
+            class="input" 
+            placeholder="请输入WiFi名称" 
+            placeholder-class="placeholder"
+            bindinput="onInput" 
+            data-field="ssid" 
+            value="{{ssid}}"
+            bindfocus="onFocus"
+            bindblur="onBlur"
+            data-field-focus="ssid"
+          />
+          <view class="clear-btn" wx:if="{{ssid}}" bindtap="clearField" data-field="ssid">
+            <text>✕</text>
+          </view>
+        </view>
+        <text class="error-msg" wx:if="{{errors.ssid}}">{{errors.ssid}}</text>
+      </view>
+
+      <!-- WiFi密码 -->
+      <view class="form-item {{errors.password ? 'error' : ''}}">
+        <view class="item-header">
+          <text class="label">WiFi密码</text>
+          <text class="hint">（如为开放网络可不填）</text>
+        </view>
+        <view class="input-wrap">
+          <text class="input-icon">🔐</text>
+          <input 
+            class="input" 
+            type="text"
+            password="{{!showPassword}}"
+            placeholder="选填" 
+            placeholder-class="placeholder"
+            bindinput="onInput" 
+            data-field="password" 
+            value="{{password}}"
+            bindfocus="onFocus"
+            bindblur="onBlur"
+            data-field-focus="password"
+          />
+          <view class="eye-toggle" catchtap="togglePasswordInput">
+            <text>{{showPassword ? '🙈' : '👁️'}}</text>
+          </view>
+        </view>
+        <text class="error-msg" wx:if="{{errors.password}}">{{errors.password}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!--提交按钮 -->
+  <view class="submit-area">
+    <view class="privacy-tip">
+      <text class="privacy-icon">🔒</text>
+      <text class="privacy-text">密码仅用于展示，我们不会存储您的敏感信息</text>
+    </view>
+    <button 
+      class="submit-btn {{isSubmitting ? 'loading' : ''}} {{!isFormValid ? 'disabled' : ''}}" 
+      bindtap="submitForm"
+      disabled="{{!isFormValid || isSubmitting}}"
+    >
+      <text wx:if="{{!isSubmitting}}">立即提交</text>
+      <view wx:else class="btn-loading">
+        <view class="loading-spinner"></view>
+        <text>提交中...</text>
+      </view>
+    </button>
+  </view>
+
+  <custom-tab-bar selected="{{1}}"></custom-tab-bar>
+</view>
